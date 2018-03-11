@@ -31,8 +31,8 @@ def dist_points(lat1,lon1,lat2,lon2):	# computes the distance between two points
 
 video_path = '/home/mayank/Documents/Skylark_Drones_Tasks/software_dev/videos/DJI_0301.SRT'	# video_path(SRT) and its name
 video = pysrt.open(video_path)									#opening the srt file
-second_dist = 35 # in m
-poi_dist = 50 # in m
+second_dist = 35 # in m for image and frame
+poi_dist = 50 # in m for image and poi
 
 img_list = os.listdir('images')									# assumed this file is kept just outside the image directory so that I can list inside image directory and get a list of files
 img_cord = []											# list to store img name and their coordinates 
@@ -63,7 +63,7 @@ with open('images.csv', 'wb') as myfile:
 		imgs = []									# list to store images within 35m of this frame
 		for iter in img_cord:								# iterating over images
 			#print dist_points(Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])
-			if (dist_points(Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])<=35):
+			if (dist_points(Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])<=second_dist):
 				imgs.append(iter[0])
 		list_img.append(imgs)
 		wr.writerow(list_img)								# writing the frame start and corresponding images to csv file
