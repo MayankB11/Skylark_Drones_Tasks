@@ -59,10 +59,11 @@ with open('images.csv', 'wb') as myfile:
 	wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)				
 	for frame in video:									# iterating over video frames
 		lat_lon = frame.text.split(',')							# seperating time of frame, latitude and longitude
+		#print str(frame.start)
 		list_img = [frame.start]							# frame start time
 		imgs = []									# list to store images within 35m of this frame
 		for iter in img_cord:								# iterating over images
-			#print dist_points(Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])
+			#print (Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])
 			if (dist_points(Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])<=second_dist):
 				imgs.append(iter[0])
 		list_img.append(imgs)
