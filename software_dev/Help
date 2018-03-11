@@ -1,2 +1,3 @@
 images.py - Takes the video and images and generates the images.csv file containing the images within 35m in each frame
 poi.py 	  - Takes the assets.csv file and images and generates the new assets.csv file containing the images within 50m for each POI
+kml.py 	  - Generates kml file for the video
