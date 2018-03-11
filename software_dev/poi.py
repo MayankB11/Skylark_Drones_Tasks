@@ -35,7 +35,7 @@ poi_dist = 50 # in m
 
 img_list = os.listdir('images')
 img_cord = []
-print len(img_list)
+
 i = 0
 for img in img_list:
 	try:
@@ -61,7 +61,7 @@ with open('assets.csv') as assets:
 		img_names = []
 		for iter in img_cord:
 			#print dist_points(Decimal(lat_lon[1]),Decimal(lat_lon[0]),iter[1],iter[2])
-			if (dist_points(Decimal(row['latitude']),Decimal(row['longitude']),iter[1],iter[2])<=35):
+			if (dist_points(Decimal(row['latitude']),Decimal(row['longitude']),iter[1],iter[2])<=50):
 				img_names.append(iter[0])
 		row['image_names'] = img_names
 		print(row)
